@@ -1,0 +1,197 @@
+/* --- Global Reset and Base Styles --- */
+* {
+    /* Kept the solid reset */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* Using a clean, professional sans-serif stack for better readability */
+    font-family: 'Inter', 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    /* Clean background for a modern feel, bringing the commented style to life */
+    background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%);
+    color: #333; /* Darker text for contrast */
+    padding: 20px;
+    min-height: 100vh;
+    line-height: 1.6; /* Improved line height for body text */
+}
+
+/* --- Layout Container --- */
+.container {
+    max-width: 1100px; /* Slightly wider for a more spacious feel */
+    margin: 40px auto; /* Added top/bottom margin for breathing room */
+    background-color: #ffffff;
+    padding: 50px; /* More padding */
+    border-radius: 12px; /* Softer, modern border radius */
+    /* Deeper, more subtle box shadow */
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.1); 
+}
+
+/* --- Heading Style --- */
+h1 {
+    text-align: center;
+    color: #1e3a8a; /* A strong, professional navy blue */
+    margin-bottom: 40px;
+    font-size: 2.8rem; /* Use 'rem' for better scaling */
+    font-weight: 700;
+    /* Subtle text shadow for depth */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05); 
+    letter-spacing: -0.5px; /* Tighten up letters slightly */
+}
+
+/* --- Team Stats Section --- */
+.team-stats {
+    /* A more subdued and professional gradient */
+    background: linear-gradient(135deg, #4c669f 0%, #2f497a 100%); 
+    color: white;
+    padding: 30px; /* Increased padding */
+    border-radius: 10px;
+    margin-bottom: 40px;
+    text-align: center;
+    /* A stronger shadow for prominence */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); 
+}
+
+.team-stats h2 {
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    opacity: 0.9;
+}
+
+.team-stats p {
+    font-size: 1.1rem;
+    margin: 10px 0;
+    letter-spacing: 0.5px;
+}
+
+.team-stats span {
+    font-weight: 700;
+    font-size: 2rem; /* Larger number for impact */
+    /* Less opaque background for a clearer look */
+    background-color: rgba(255, 255, 255, 0.15); 
+    padding: 5px 20px;
+    border-radius: 25px;
+    display: inline-block;
+    margin-top: 5px;
+}
+
+/* --- Member Cards --- */
+.member-card {
+    /* Clean white background, let border/shadow define the card */
+    background-color: #ffffff; 
+    padding: 35px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    /* Use 'border-left' as the primary color indicator */
+    border-left: 6px solid #4c669f; 
+    /* Softer default shadow */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); 
+    /* Smoother transition properties */
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.member-card:hover {
+    /* A clean, vertical lift on hover */
+    transform: translateY(-8px); 
+    /* Enhanced, prominent shadow on hover */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); 
+}
+
+.member-card h2 {
+    color: #4c669f; 
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-weight: 600;
+    /* Lighter, dashed border for a modern touch */
+    border-bottom: 2px dashed #e0e0e0; 
+    padding-bottom: 10px;
+}
+
+.member-card p {
+    margin: 10px 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    display: flex; /* Use flexbox for alignment */
+    align-items: center;
+}
+
+.member-card strong {
+    color: #555;
+    min-width: 150px; /* Slightly reduced min-width */
+    display: inline-block;
+    font-weight: 600;
+    margin-right: 15px; /* Space between label and value */
+}
+
+.member-card span {
+    color: #1a1a1a;
+    font-weight: 500;
+    flex-grow: 1; /* Allows the span to take up remaining space */
+}
+
+/* --- Different Color Themes for Cards --- */
+/* The color choice is now cleaner and based on the border-left for a sleeker look */
+
+/* Card 2: Warm and Energetic */
+.member-card:nth-child(2) {
+    --card-color: #ff9f1c; /* Orange */
+    border-left-color: var(--card-color);
+}
+.member-card:nth-child(2) h2 {
+    color: var(--card-color);
+}
+
+/* Card 3: Cool and Refreshing */
+.member-card:nth-child(3) {
+    --card-color: #2ec4b6; /* Teal/Aqua */
+    border-left-color: var(--card-color);
+}
+.member-card:nth-child(3) h2 {
+    color: var(--card-color);
+}
+
+/* Card 4: Vibrant and Playful */
+.member-card:nth-child(4) {
+    --card-color: #e71d36; /* Red */
+    border-left-color: var(--card-color);
+}
+.member-card:nth-child(4) h2 {
+    color: var(--card-color);
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) { /* Changed breakpoint for tablet/mobile */
+    .container {
+        padding: 25px;
+        margin: 20px auto;
+    }
+    
+    h1 {
+        font-size: 2rem;
+        margin-bottom: 30px;
+    }
+
+    .team-stats {
+        padding: 25px 20px;
+    }
+    
+    .member-card p {
+        /* Revert to block display for small screens */
+        display: block; 
+    }
+    
+    .member-card strong {
+        display: block;
+        margin-bottom: 2px;
+        min-width: auto; /* Remove min-width */
+    }
+
+    .member-card span {
+        display: block;
+        font-size: 0.95rem;
+        margin-left: 0;
+    }
+}

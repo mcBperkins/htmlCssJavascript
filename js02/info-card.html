@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Info Card</title>
+</head>
+<body>
+    <h1>Personal Information</h1>
+    
+    <!-- These paragraph elements will be filled by JavaScript -->
+    <p id="name"></p>
+    <p id="email"></p>
+    <p id="phone"></p>
+    <p id="location"></p>
+    <p id="hobby"></p>
+    
+    <script>
+        // Create your variables here
+        let fullName = "Bradley perkins";
+        let emailAddress = "mc_bperkins27@mcjvs2.org";
+        let phoneNumber = "330-242-0679";
+        let city = "Medina";
+        let favoriteHobby = "Weightlifting";
+        
+        // Use template literals to format and display
+        document.getElementById('name').textContent = `Name: ${fullName}`;
+        document.getElementById('email').textContent = `Email: ${emailAddress}`;
+        document.getElementById('phone').textContent = `Phone: ${phoneNumber}`;document.getElementById('phone').textContent = `Phone: ${phoneNumber}`;document.getElementById('phone').textContent = `Phone: ${phoneNumber}`;
+        document.getElementById('hobby').textContent = `Hobby: ${favoriteHobby}`;
+        document.getElementById('location').textContent = `City: ${city}`;
+        // Complete the rest here...
+        
+    </script>
+</body>
+</html>
