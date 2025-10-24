@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi-Currency Converter</title>
+    <style>
+        /* Using a nice, modern font */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+        
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            /* Enhanced gradient and aesthetics */
+            background: linear-gradient(135deg, #4c66e9 0%, #2093c8 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        .converter {
+            background-color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+        h1 {
+            color: #0b1a7d;
+            text-align: center;
+            border-bottom: 4px solid #4c66e9;
+            padding-bottom: 15px;
+            margin-bottom: 30px;
+        }
+        /* Style for the base USD amount */
+        .amount {
+            font-size: 28px;
+            font-weight: 700;
+            color: #4c66e9;
+            text-align: center;
+            margin: 20px 0 40px 0;
+            padding: 10px;
+            border: 2px solid #e0e7ff;
+            border-radius: 8px;
+            background-color: #f7f9ff;
+        }
+        /* Container for each conversion */
+        .conversion {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 18px;
+            padding: 15px;
+            margin: 15px 0;
+            background-color: #f8f9fa;
+            border-left: 5px solid #667eea;
+            border-radius: 5px;
+            transition: transform 0.2s;
+        }
+        .conversion:hover {
+            transform: translateX(5px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .currency-value {
+            font-weight: bold;
+            color: #333;
+        }
+        /* Styling for the displayed rate (Bonus Challenge) */
+        .rate {
+            font-size: 12px;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="converter">
+        <h1>Global Currency Exchange</h1>
+        <div class="amount" id="usd"></div>
+        
+        <!-- Standard Currencies -->
+        <p class="conversion" id="euro"></p>
+        <p class="conversion" id="pound"></p>
+        <p class="conversion" id="yen"></p>
+        <p class="conversion" id="cad"></p>
+        
+        <!-- Bonus Currencies -->
+        <p class="conversion" id="peso"></p>
+        <p class="conversion" id="rupee"></p>
+    </div>
+    
+    <script>
+        // Starting amount in USD (You can change this to any value)
+        let usdAmount = 100;
+        
+        // Conversion rates (USD to 1 foreign unit)
+        let euroRate = 0.92;
+        let poundRate = 0.79;
+        let yenRate = 149.50;
+        let cadRate = 1.36;
+        // Bonus Rates
+        let pesoRate = 17.25; // Mexican Peso
+        let rupeeRate = 83.12; // Indian Rupee
+
+        /**
+         * Converts USD to a target currency and formats the output for display.
+         * Includes the conversion rate as a bonus.
+         * @param {number} amount - The base USD amount.
+         * @param {number} rate - The conversion rate.
+         * @param {string} symbol - The currency symbol (e.g., '€', '£').
+         * @param {string} code - The three-letter currency code (e.g., 'EUR').
+         * @param {string} elementId - The ID of the HTML element to update.
+         */
+        function convertAndDisplay(amount, rate, symbol, code, elementId) {
+            let convertedAmount = amount * rate;
+            let decimals = (code === 'JPY' || code === 'INR') ? 0 : 2; // Yen and Rupees often use 0 decimals
+            
+            // Format the output string to include the currency value and the exchange rate
+            const outputHTML = `
+                <span class="currency-value">${symbol}${convertedAmount.toFixed(decimals)} ${code}</span>
+                <span class="rate">Rate: ${rate.toFixed(4)}</span>
+            `;
+
+            document.getElementById(elementId).innerHTML = outputHTML;
+        }
+
+        // Display USD amount
+        document.getElementById('usd').textContent = `$${usdAmount.toFixed(2)} USD equals:`;
+        
+        // Convert and Display all currencies
+        convertAndDisplay(usdAmount, euroRate, '€', 'EUR', 'euro');
+        convertAndDisplay(usdAmount, poundRate, '£', 'GBP', 'pound');
+        convertAndDisplay(usdAmount, yenRate, '¥', 'JPY', 'yen'); 
+        convertAndDisplay(usdAmount, cadRate, '$', 'CAD', 'cad');
+        
+        // Bonus Conversions
+        convertAndDisplay(usdAmount, pesoRate, '$', 'MXN', 'peso');
+        convertAndDisplay(usdAmount, rupeeRate, '₹', 'INR', 'rupee');
+
+        console.log('USD:', usdAmount);
+        console.log('EUR:', usdAmount * euroRate);
+        console.log('MXN:', usdAmount * pesoRate);
+    </script>
+</body>
+</html>

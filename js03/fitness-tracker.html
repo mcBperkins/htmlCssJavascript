@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Tracker</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Inter', Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            /* Light green background for fitness theme */
+            background-color: #e8f5e9; 
+            color: #2e3a46;
+        }
+        .tracker {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #2e7d32; /* Dark Green Header */
+            text-align: center;
+            border-bottom: 2px solid #66bb6a;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        h3 {
+            color: #388e3c; /* Medium Green Subheading */
+        }
+        .stat {
+            padding: 12px;
+            margin: 8px 0;
+            background-color: #f1f8e9; /* Very light green background */
+            border-left: 4px solid #66bb6a; /* Bright green accent bar */
+            border-radius: 3px;
+        }
+        /* CSS for the Progress Bar Bonus Challenge */
+        .progress-container {
+            margin-top: 20px;
+            background-color: #dcedc8; /* Lighter base */
+            border-radius: 8px;
+            height: 30px;
+            overflow: hidden;
+            border: 1px solid #a5d6a7;
+            box-shadow: inset 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #81c784 0%, #4caf50 100%); /* Gradient for visual appeal */
+            width: 0%; /* Initial width set to 0, updated by JS */
+            transition: width 0.7s ease-in-out;
+            text-align: center;
+            line-height: 30px;
+            color: white;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <div class="tracker">
+        <h1>Fitness Progress Tracker</h1>
+        
+        <h3>Starting & Current Stats:</h3>
+        <div class="stat" id="start"></div>
+        <div class="stat" id="current"></div>
+        <div class="stat" id="goal"></div>
+        
+        <h3>My Journey So Far (and Ahead):</h3>
+        <div class="stat" id="lost"></div>
+        <div class="stat" id="remaining"></div>
+        <div class="stat" id="average"></div>
+        <div class="stat" id="percent"></div>
+        
+        <!-- Bonus Challenge: Progress Bar -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+        
+        <!-- Weeks and Months to Goal -->
+        <div class="stat" id="estimate" style="margin-top: 25px;"></div>
+        <div class="stat" id="months"></div>
+
+    </div>
+    
+    <script>
+        // Your fitness data
+        let startWeight = 200;
+        let currentWeight = 185;
+        let goalWeight = 170;
+        let weeksPassed = 8;
+        
+        // --- Core Calculations ---
+        // Calculate weight lost (starting weight - current weight)
+        let weightLost = startWeight - currentWeight;
+        
+        // Calculate weight remaining (current weight - goal weight)
+        let weightRemaining = currentWeight - goalWeight;
+        
+        // Calculate average loss per week (weight lost ÷ weeks passed)
+        let averageLossPerWeek = weightLost / weeksPassed;
+        
+        // Calculate percentage complete (weight lost ÷ total needed) × 100
+        let totalNeeded = startWeight - goalWeight;
+        let percentComplete = (weightLost / totalNeeded) * 100;
+        
+        // Estimate weeks to goal (weight remaining ÷ average per week)
+        let weeksToGoal = weightRemaining / averageLossPerWeek;
+
+        // Bonus Calculation: Months to Goal (assuming 4 weeks per month)
+        let monthsToGoal = weeksToGoal / 4;
+        
+        // --- Display Current Stats ---
+        document.getElementById('start').textContent = `Starting Weight: ${startWeight} lbs`;
+        document.getElementById('current').textContent = `Current Weight: ${currentWeight} lbs (8 weeks of hard work!)`;
+        document.getElementById('goal').textContent = `Goal Weight: ${goalWeight} lbs`;
+        
+        // --- Display Progress Metrics ---
+        
+        document.getElementById('lost').textContent = `Total Weight Lost: ${weightLost} lbs! Great job!`;
+        
+        // Complete the remaining displays...
+        document.getElementById('remaining').textContent = `Weight Still to Lose: ${weightRemaining} lbs`;
+        
+        // Use .toFixed(2) for averageLossPerWeek
+        document.getElementById('average').textContent = `Average loss: ${averageLossPerWeek.toFixed(2)} lbs/week`;
+        
+        // Use .toFixed(1) for percentComplete
+        document.getElementById('percent').textContent = `Progress: ${percentComplete.toFixed(1)}% complete`;
+        
+        // Use .toFixed(1) for weeksToGoal
+        document.getElementById('estimate').textContent = `Estimated weeks to goal: ${weeksToGoal.toFixed(1)} weeks`;
+
+        // Display Bonus Calculation: Months to Goal
+        document.getElementById('months').textContent = `Estimated months to goal: ${monthsToGoal.toFixed(1)} months (You're almost there!)`;
+        
+        // --- Bonus Challenge: Update Progress Bar ---
+        const progressBar = document.getElementById('progressBar');
+        progressBar.style.width = `${percentComplete}%`;
+        // Ensure the percentage is visible, even if the progress is low
+        progressBar.textContent = `${percentComplete.toFixed(1)}%`;
+        
+        console.log('Final progress data loaded.');
+    </script>
+</body>
+</html>

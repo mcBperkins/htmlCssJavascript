@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Calculator</title>
+</head>
+<body>
+    <h1>Math Operations Practice</h1>
+    
+    <!-- Create paragraph elements for each operation -->
+    <p id="addition"></p>
+    <p id="subtraction"></p>
+    <p id="multiplication"></p>
+    <p id="division"></p>
+    <p id="remainder"></p>
+    
+    <script>
+        // Your two numbers
+        let num1 = 17;
+        let num2 = 9;
+        
+        // Perform calculations
+        let sum = num1 + num2;
+        let difference = num1 - num2;
+        let product = num1 * num2;
+        // Add division here
+        // Add remainder here
+        
+        // Display results using template literals
+        document.getElementById('addition').textContent = `Addition: ${num1} + ${num2} = ${sum}`;
+        document.getElementById('subtraction').textContent = `Subtraction: ${num1} - ${num2} = ${difference}`;
+        document.getElementById('multiplication').textContent = `Multiplication: ${num1} * ${num2} = ${difference}`;
+        document.getElementById('division').textContent = `Division: ${num1} / ${num2} = ${difference}`;
+        document.getElementById('remainder').textContent = `Remainder: ${num1} % ${num2} = ${difference}`;
+        // Add the rest of your displays here
+        
+        // Log to console
+        console.log('Sum:', sum);
+        console.log('Difference:', difference);
+        // Add the rest of your console.log statements
+    </script>
+</body>
+</html>
