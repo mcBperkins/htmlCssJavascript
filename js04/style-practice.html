@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Style Practice</title>
+</head>
+<body>
+    <h1>Styling Elements with JavaScript</h1>
+    
+    <p id="para1">This is paragraph 1. </p>
+    <p id="para2">This is paragraph 2. </p>
+    <p id="para3">This is paragraph 3. </p>
+    
+    <script>
+        // Select paragraph 1
+        let para1 = document.getElementById('para1');
+        
+        // Style paragraph 1 - blue text, 20px font
+        // Requirements: Blue text (color), 20px font size (fontSize)
+        para1.style.color = 'blue';
+        para1.style.fontSize = '20px';
+        
+        // Select paragraph 2
+        let para2 = document.getElementById('para2');
+        
+        // Style paragraph 2 - red background, white text, padding
+        // Requirements: Red background (backgroundColor), white text (color), 10px padding (padding)
+        para2.style.backgroundColor = 'red';
+        para2.style.color = 'white';
+        para2.style.padding = '10px';
+        
+        // Select paragraph 3
+        let para3 = document.getElementById('para3');
+        
+        // Style paragraph 3 - green border, padding, centered
+        // Requirements: Green border (border), 15px padding (padding), centered text (textAlign)
+        para3.style.border = '3px solid green';
+        para3.style.padding = '15px';
+        para3.style.textAlign = 'center';
+        
+        console.log('Styles applied!');
+    </script>
+</body>
+</html>

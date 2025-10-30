@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Paragraph Styler</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+        
+        .highlight {
+            background-color: #ffeb3b;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Multi-Element Selection</h1>
+    
+    <p class="text">Paragraph 1 - This will be blue</p>
+    <p class="text">Paragraph 2 - This stays normal</p>
+    <p class="text">Paragraph 3 - This will be highlighted (middle)</p>
+    <p class="text">Paragraph 4 - This stays normal</p>
+    <p class="text">Paragraph 5 - This will be red</p>
+    
+    <script>
+        // Select ALL elements with class "text"
+        let paragraphs = document.querySelectorAll('.text');
+        
+        // Log how many were found
+        console.log('Number of paragraphs:', paragraphs.length); // Should be 5
+        
+        // 1. Change first paragraph to blue (Index 0)
+        paragraphs[0].style.color = 'blue';
+        
+        // 2. Change last paragraph to red (Index 5 - 1 = 4)
+        paragraphs[paragraphs.length - 1].style.color = 'red';
+        
+        // 3. Add highlight class to middle paragraph (Index 2)
+        paragraphs[2].classList.add('highlight');
+        
+        console.log('Paragraphs styled!');
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<body>
+    <div class="card">
+        <h1 id="title">Original Title</h1>
+        <p id="description">Original description text.</p>
+        <p id="info">Original info text.</p>
+    </div>
+    
+    </body><script>
+    // Select elements by their ID
+    let titleElement = document.getElementById('title');
+    let descElement = document.getElementById('description');
+    let infoElement = document.getElementById('info');
+    
+    // --- Step 3: Change the text to something different ---
+    titleElement.textContent = 'Experiment Complete! 🎉';
+    descElement.textContent = 'This element now showcases multiple style changes via JavaScript.';
+    
+    // Use innerHTML when you want to add HTML tags inside
+    infoElement.innerHTML = 'This paragraph also got the new **bold** style and a class!';
+    
+    // --- Step 3: Try adding different classes ---
+    // The 'highlight' class already exists, let's add it to the infoElement as well.
+    descElement.classList.add('highlight'); 
+    infoElement.classList.add('highlight');
+    
+    // --- Step 3: Change the title color to a different color (using rgb) ---
+    titleElement.style.color = 'rgb(76, 175, 80)'; // Changed to a nice green color
+    
+    // --- Step 3: Add more style changes (fontSize, backgroundColor) ---
+    
+    // Change the title's font size
+    titleElement.style.fontSize = '32px'; 
+    
+    // Change the description's background color (inline style takes precedence over the .highlight class)
+    descElement.style.backgroundColor = '#e0f7fa'; // Light cyan background
+    descElement.style.padding = '15px'; // Adjust padding slightly
+    
+    // Log to console
+    console.log('Content successfully updated with new experimental styles!');
+</script>

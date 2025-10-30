@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile Builder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0e0e0;
+            padding: 20px;
+        }
+        
+        #profile {
+            max-width: 400px;
+            margin: 50px auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        #profile h2 {
+            margin-top: 0;
+            color: #1976d2;
+        }
+        
+        #profile p {
+            color: #555;
+            line-height: 1.6;
+        }
+
+        /* --- BONUS CSS for Centering Text --- */
+        .center-text {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="profile">
+        <h2 id="name"></h2>
+        <p id="job"></p>
+        <p id="location"></p>
+        <p id="bio"></p>
+    </div>
+    
+    <script>
+        // Create profile data variables
+        let personName = "Sarah Johnson";
+        let jobTitle = "Web Developer";
+        let personLocation = "San Francisco, CA";
+        let personBio = "Passionate about creating beautiful and functional websites. Love learning new technologies!";
+        
+        // Select elements
+        let profileDiv = document.getElementById('profile');
+        let nameElement = document.getElementById('name');
+        let jobElement = document.getElementById('job');
+        let locationElement = document.getElementById('location');
+        let bioElement = document.getElementById('bio');
+        
+        // Populate the profile card
+        nameElement.textContent = personName;
+        jobElement.textContent = jobTitle;
+        locationElement.textContent = personLocation;
+        bioElement.textContent = personBio;
+
+        // --- Bonus Challenge Styles ---
+
+        // 1. Change the name color to something different (e.g., #ff5722 orange)
+        nameElement.style.color = '#ff5722'; 
+        
+        // 2. Center all the text (applied to the main div using a class)
+        profileDiv.classList.add('center-text');
+
+        // 3. Add a border to the profile div
+        profileDiv.style.border = '2px solid #1976d2'; 
+
+        // 4. Make the job title italic
+        jobElement.style.fontStyle = 'italic'; 
+        
+        console.log('Profile card created and styled!');
+    </script>
+</body>
+</html>

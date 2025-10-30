@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Business Card</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #eceff1;
+            padding: 50px;
+        }
+        
+        .card {
+            max-width: 400px;
+            margin: 0 auto;
+            /* --- Original GRADIENT (Blue/Purple) --- */
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .card h2 {
+            margin: 0 0 5px 0;
+            font-size: 28px;
+        }
+        
+        .card .title {
+            font-size: 16px;
+            opacity: 0.9;
+            margin-bottom: 20px;
+        }
+        
+        .card .info {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        
+        .card .company {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.3);
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div id="card"></div>
+    
+    <script>
+        // --- YOUR INFORMATION HERE (VARIABLES POPULATED) ---
+        let fullName = "Bradley Perkins";
+        let jobTitle = "Web Developer";
+        let company = "N/A";
+        let email = "bperkins27@mcjvs2.org";
+        let phone = "(330) 242-0679";
+        let website = "www.bradleyperkins.com";
+        let linkedIn = "linkedin.com/in/Bradley Perkins";
+        let address = "5482 Wagon trl";
+        
+        // Select the card container
+        let cardDiv = document.getElementById('card');
+        
+        // Build the card HTML using template literals, including new variables
+        let cardHTML = `
+            <h2>${fullName}</h2>
+            <div class="title">${jobTitle}</div>
+            <div class="info">📧 ${email}</div>
+            <div class="info">📱 ${phone}</div>
+            <div class="info">🌐 ${website}</div>
+            
+            <div class="info">📍 ${address}</div>
+            <div class="info">🔗 ${linkedIn}</div>
+            
+            <div class="company">${company}</div>
+        `;
+        
+        // Add the card class to the div
+        cardDiv.classList.add('card');
+        
+        // Insert the HTML
+        cardDiv.innerHTML = cardHTML;
+        
+        // FIX: The console.log needed to reference the variable 'fullName', not an undeclared name.
+        console.log('Business card created for', fullName);
+    </script>
+</body>
+</html>
