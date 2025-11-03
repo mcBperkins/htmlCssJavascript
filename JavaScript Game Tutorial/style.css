@@ -1,9 +1,83 @@
 body {
-    background: black;
+    font-family: 'Consolas', monospace; /* Monospace font for a tech feel */
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #0d1117; /* GitHub dark theme background */
+    color: #c9d1d9; /* Light gray text */
 }
-#canvas1 {
-    border:1px solid white;
-    position: absolute;
-    top: 50%;
-    left: 50%;
+
+#game-container {
+    display: flex;
+    border: 3px solid #2f3336;
+    border-radius: 12px;
+    box-shadow: 0 0 40px rgba(76, 175, 80, 0.3); /* Green glow effect */
+    overflow: hidden;
+}
+
+#ui {
+    width: 220px;
+    padding: 25px;
+    background-color: #161b22; /* Dark UI background */
+    border-right: 1px solid #2f3336;
+}
+
+#ui h3 {
+    color: #4CAF50; /* Primary green highlight */
+    margin-top: 0;
+    border-bottom: 2px solid #4CAF50;
+    padding-bottom: 15px;
+    font-size: 1.5em;
+    text-shadow: 0 0 5px rgba(76, 175, 80, 0.5);
+}
+
+#ui p {
+    font-size: 1.1em;
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+#ui span {
+    font-weight: bold;
+    color: #FFD700; /* Gold color */
+}
+
+#ui button {
+    margin-top: 30px;
+    padding: 12px;
+    width: 100%;
+    cursor: pointer;
+    background-color: #E91E63; /* Pink accent */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+#ui button:hover {
+    background-color: #C2185B;
+    transform: scale(1.02);
+}
+
+#game-canvas {
+    background-color: #1e3a24; /* Dark stylized grass */
+    display: block;
+}
+
+/* Added styles for better stats visibility */
+.health-bar {
+    height: 5px;
+    background-color: red;
+    border-radius: 2px;
+    margin-top: 2px;
+}
+
+.health-bar-inner {
+    height: 100%;
+    background-color: limegreen;
+    transition: width 0.3s;
 }

@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-    <meta charset="UTF-8"
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"
-    <title>Tower Defense</title>
-    <link rel="stylesheet" href="style.css"
+<head>
+    <meta charset="UTF-8">
+    <title>Basic Tower Defense</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <canvas id="canvas1"></canvas>
+    <div id="game-container">
+        <div id="ui">
+            <h3>Tower Defense</h3>
+            <p>Score: <span id="score">0</span></p>
+            <p>Gold: <span id="gold">100</span></p>
+            <p>Health: <span id="health">10</span></p>
+            <button id="start-wave">Start Wave</button>
+        </div>
 
-    <script src="script.js"></script>
+        <canvas id="game-canvas"></canvas>
+    </div>
+
+    <script src="game.js"></script>
 </body>
 </html>
